@@ -9,11 +9,6 @@ image:
   feature: wall2.png
 ---
 
-```scala
-def buildDeveloper()(Scala): FunctionalProgramming = {
- YearOfExperience > 10
-}
-```
 
 I'm a functional programming, motivator, leader, and long-time software architect and engineer. I'm faithful to the principles of functional programming and defender of creation simple and maintainable code, I love technology, science, software engineering and my family.
 
@@ -23,4 +18,10 @@ This is my blog attempt, fueled by my desire to share my knowledge.
 
 You can find something that vaguely resembles a resume on [LinkedIn](https://www.linkedin.com/in/{{ site.owner.linkedin }}).
 
-"Programming is science, art, and engineering."
+_"Programming is science, art, and engineering."_
+
+```scala
+def buildDeveloper()(Scala): FunctionalProgramming = {
+ YearOfExperience > 10
+}
+```
