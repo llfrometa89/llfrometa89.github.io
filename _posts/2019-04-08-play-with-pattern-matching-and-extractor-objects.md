@@ -15,7 +15,7 @@ tags:         [scala, pattern-matching, functional-programing]
   val TWO  = "two"
   val MANY = "many"
 
-  val number: Int    = Random.nextInt(6)
+  val number: Int = Random.nextInt(6)
 
   def numberAsLiteralString(value: Int): String = value match {
     case 0 => ZERO
