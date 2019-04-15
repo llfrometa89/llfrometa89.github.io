@@ -71,14 +71,15 @@
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         var disqus_config = function () {
-          this.page.url = 'llfrometa89.github.io';
-          this.page.identifier = 'llfrometa';
+          console.info("....>1",this.page)
+          this.page.title = '{{ page.title }}'
+          this.page.url = '{{ site.url }}{{ page.url }}/';
+          this.page.identifier = '{{ site.owner.disqus }}';
+          console.info("....>2",this.page.url)
         };
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            dsq.page.url = 'llfrometa89.github.io';
-            dsq.page.identifier = 'llfrometa';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
