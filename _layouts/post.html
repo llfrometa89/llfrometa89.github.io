@@ -62,6 +62,32 @@
     <hr />
   </div><!-- /.related-articles -->{% endif %}
 
+
+  {% if site.owner.disqus %}
+  <div class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = '{{ site.owner.disqus }}';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        var disqus_config = function () {
+          this.page.url = 'llfrometa89.github.io';
+          this.page.identifier = 'llfrometa';
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            dsq.page.url = 'llfrometa89.github.io';
+            dsq.page.identifier = 'llfrometa';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+  {% endif %}
+
+
   <footer>
     {% include _footer.html %}
   </footer>
