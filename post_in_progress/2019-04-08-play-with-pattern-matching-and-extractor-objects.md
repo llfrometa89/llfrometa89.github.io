@@ -206,7 +206,13 @@ I hope it has been very helpful for you, if you have arrived here, it means that
 
 [//]: <> (Espero que haya sido de gran ayuda para usted. Si ha llegado aquí, significa que ha podido entender estas dos poderosas sintaxis de Scala y los conceptos asociados. Puedes encontrar los ejemplos aquí.)
 
-## Resources
+
+## See Also
 - <a href="https://docs.scala-lang.org/tour/pattern-matching.html" target="_blank">https://docs.scala-lang.org/tour/pattern-matching.html</a>
 - <a href="https://docs.scala-lang.org/tour/extractor-objects.html" target="_blank">https://docs.scala-lang.org/tour/extractor-objects.html</a>
 - <a href="https://alvinalexander.com/scala/how-to-use-pattern-matching-scala-match-case-expressions" target="_blank">https://alvinalexander.com/scala/how-to-use-pattern-matching-scala-match-case-expressions</a>
+
+## The Scala Cookbook
+<img src="images/scala-cookbook-oreilly.gif"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
