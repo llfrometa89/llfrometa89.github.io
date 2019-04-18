@@ -71,11 +71,11 @@
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         var disqus_config = function () {
-          console.info("....>1",this.page)
           this.page.title = '{{ page.title }}'
           this.page.url = '{{ site.url }}{{ page.url }}/';
-          this.page.identifier = '{{ site.owner.disqus }}';
-          console.info("....>2",this.page.url)
+          this.page.identifier = this.page.url;
+          console.info("....>1url=",this.page.url)
+          console.info("....>2identifier=",this.page.identifier)
         };
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
