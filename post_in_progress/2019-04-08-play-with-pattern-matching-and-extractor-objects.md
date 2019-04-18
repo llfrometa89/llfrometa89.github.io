@@ -3,7 +3,7 @@ layout:       post
 title:        "Playing with pattern matching and extractor objects in Scala"
 description:  "Examining two powerful benefits of the Scala language, such as pattern matching and the extractor objects."
 category:     articles
-tags:         [scala, pattern-matching, extractor-objects, functional-programing]
+tags:         [scala, pattern-matching, extractor-objects, functional-programing, type erasure variable pattern, type pattern, tuple pattern, sequence pattern, scala cookbook, pattern match constructor pattern constant, pattern case list sequence tuple array string case class]
 ---
 
 [//]: <> (trans-es -> description:Examinando dos poderosas bondades del lenguaje Scala como son pattern matching y de el extractor object.)
@@ -213,6 +213,10 @@ I hope it has been very helpful for you, if you have arrived here, it means that
 - <a href="https://alvinalexander.com/scala/how-to-use-pattern-matching-scala-match-case-expressions" target="_blank">https://alvinalexander.com/scala/how-to-use-pattern-matching-scala-match-case-expressions</a>
 
 ## The Scala Cookbook
-<img src="images/scala-cookbook-oreilly.gif"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" />
+
+<img src="../images/scala-cookbook-oreilly.gif"/><br>
+
+You can find the Scala Cookbook at these locations:
+
+- [Here on the O’Reilly website, and](http://shop.oreilly.com/product/0636920026914.do)
+- [Here on Amazon.com](https://www.amazon.com/dp/1449339611/ref=cm_sw_su_dp)
