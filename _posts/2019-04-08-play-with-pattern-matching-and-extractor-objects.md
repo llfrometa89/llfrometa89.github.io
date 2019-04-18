@@ -55,10 +55,10 @@ Any literal can be used as a constant. A constant pattern can only coincide with
 
 ```scala
 val value: Int = 2
-val result: String = value match {
-  case 2 => "two"
-  case true => "true"
-}
+  val result: String = value match {
+    case 2 => "two"
+    case 3 => "three"
+  }
 // res0: result: String = "two"
 ```
 
@@ -85,12 +85,126 @@ val result: String = value match {
 // res0: result: String = "My value is 2"
 ```
 
-[//]: <> (trans-es -> )
+## Constructor patterns
 
-[//]: <> (trans-es -> )
+The constructor pattern lets you match a constructor in a case statement. As shown in the examples, you can specify constants or variable patterns as needed in the constructor pattern:
 
-[//]: <> (trans-es -> )
+[//]: <> (trans-es -> El patrón del constructor le permite hacer coincidir un constructor en una declaración de caso. Como se muestra en los ejemplos, puede especificar constantes o patrones variables según sea necesario en el patrón del constructor:)
 
+```scala
+trait Person {
+  val name: String
+  val age: Int
+}
+
+case class Student(name: String, age: Int, averageScore: Double) extends Person
+
+case class Teacher(name: String, age: Int, totalOfClasses: Int) extends Person
+
+val person: Person = Student("Martin", 17, 4.75)
+val result: String = person match {
+    case Student(name, _, averageScore) => s"The student $name has a average score $averageScore"
+    case Teacher("John", age, _)        => s"The teacher John has $age years old"
+  }
+// res0: result: String = "The student Martin has a average score 4.75"
+```
+
+## Type patterns
+
+A match for a specific type
+
+[//]: <> (trans-es -> Una coincidencia para un tipo específico)
+
+```scala
+val valueAny: Any = "2"
+val result5: String = valueAny match {
+  case v: Int    => s"The value $v is a Int"
+  case v: String => s"The value $v is a String"
+}
+// res0: result: String = "The value 2 is a String"
+```
+
+## Sequence patterns
+You can match against sequences like List, Array, Vector or others. Use the _ character to stand for one element in the sequence and use _* to stand for “zero or more elements” e.g:
+
+[//]: <> (trans-es -> Puede hacer coincidir contra secuencias como Lista, Array, Vector u otros. Use el carácter _ para representar un elemento de la secuencia y use _ * para representar “cero o más elementos”, como se muestra en los ejemplos:)
+
+
+```scala
+  val sequence: Iterable[Int] = List(1, 2, 3, 4)
+  val result: String = sequence match {
+  case List(0, _, _)      => "A three element list with 0 as the first element"
+  case list @ List(1, _*) => s"A list beginning with 1, having any number of elements: [$list]"
+  case Vector(1, _*)      => "A vector beginning with 1 and having any number"
+}
+  // res0: result: String = "A list beginning with 1, having any number of elements [List(1, 2, 3, 4)]"
+```
+
+## Tuple patterns
+
+We can match tuple patterns and access the value of each element in the tuple. You can also use the _ wildcard if you’re not interested in the value of an element e.g:
+
+[//]: <> (trans-es -> Podemos hacer coincidir los patrones de tuplas y acceder al valor de cada elemento en la tupla. También puedes usar el comodín _ si no estás interesado en el valor de un elemento:)
+
+```scala
+val tuple: Any = (1, 2)
+val result7: String = tuple match {
+  case (a, b)       => s"A two elem tuple, with values $a, and $b"
+  case (a, b, c)    => s"A three elem tuple, with values $a, $b, and $c"
+  case (a, b, c, _) => s"A four elem tuple: got $a, $b, $c and more element"
+}
+// res0: result: String = "A two elem tuple, with values 1, and 2"
+```
+
+## Adding variables to patterns
+At times you may want to add a variable to a pattern. You can do this with the following general syntax:
+
+
+[//]: <> (trans-es -> A veces es posible que desee agregar una variable a un patrón. Puedes hacer esto con la siguiente sintaxis general:)
+
+```scala
+value match {
+  case variableName @ pattern
+}
+```
+You know that you can do this
+
+```scala
+value match {
+  case list: List[_] => s"The List: $list"
+}
+```
+so it seems like you should try this with a sequence pattern:
+
+```scala
+value match {
+  case list: List(1, _*) => s"The List: $list"
+}
+```
+Unfortunately, this fails with the following compiler error:
+
+```scala
+Error:(72, 21) '=>' expected but '(' found.
+    case list : List(1, _*) => s"The List: $list"
+```
+The solution to this problem is to add a `variable-binding pattern` to the sequence pattern:
+
+```scala
+value match {
+  case list @ List(1, _*) => s"The List: $list"
+}
+```
+or
+
+```scala
+value match {
+  case s @ Student(name, _, averageScore) => s"The student $name has a average score $averageScore: student = [$s]"
+}
+```
+
+I hope it has been very helpful for you, if you have arrived here, it means that you have been able to understand these two powerful Scala syntax and the associated concepts. You can find the examples of this post [here](https://github.com/llfrometa89/blog_scala_examples/blob/master/src/main/scala/com/llfrometa/patern_matching/PlayingWithPatternMatching.scala).
+
+[//]: <> (Espero que haya sido de gran ayuda para usted. Si ha llegado aquí, significa que ha podido entender estas dos poderosas sintaxis de Scala y los conceptos asociados. Puedes encontrar los ejemplos aquí.)
 
 ## Resources
 - <a href="https://docs.scala-lang.org/tour/pattern-matching.html" target="_blank">https://docs.scala-lang.org/tour/pattern-matching.html</a>
