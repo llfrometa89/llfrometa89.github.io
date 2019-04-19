@@ -16,7 +16,7 @@ We will start with the Pattern matching, this syntax in used when we want to mat
 
 [//]: <> (trans-es -> Comenzaremos con el Pattern matching, esta sintaxis en usada cuando queremos hacer coincidir uno o más patrones en una expresión como pueden ser un patrón constante, patrón variable, patrón constructor, patrón de secuencia, patrón de tupla o patrón de tipo.)
 
-## Pattern matching
+# Pattern matching
 >Pattern matching is a mechanism for checking a value against a pattern. A successful match can also deconstruct a value into its constituent parts. It is a more powerful version of the switch statement in Java and it can likewise be used in place of a series of if/else statements.
 
 The following examples show many different types of patterns that can be used:
@@ -24,28 +24,53 @@ The following examples show many different types of patterns that can be used:
 [//]: <> (trans-es -> El siguiente ejemplos muestra muchos tipos diferentes de patrones que se pueden usar:)
 
 ```scala
-  val ZERO = "zero"
-  val ONE  = "one"
-  val TWO  = "two"
-  val MANY = "many"
+def numberAsLiteralString(value: Int): String = value match {
+  case 0 => "zero"
+  case 1 => "one"
+  case 2 => "two"
+  case _ => "many"
+}
 
-  val number: Int = Random.nextInt(6)
-
-  def numberAsLiteralString(value: Int): String = value match {
-    case 0 => ZERO
-    case 1 => ONE
-    case 2 => TWO
-    case _ => MANY
-  }
-
-  val numberAsString = numberAsLiteralString(number)
-  //numberAsString = "one"
+numberAsLiteralString(1) // "one"
+numberAsLiteralString(5) // "many"
 ```
 
-## Extractor objects
+## Pattern guards
+Pattern guards are boolean expressions which are used to make cases more specific. Just we should to add `if <boolean expression>` after the pattern `case`.
+
+```scala
+val maybeValue = Option(2)
+val result = maybeValue match {
+  case Some(value) if value == 2 => s"My value is `2`"
+  case Some(value)               => s"My value is $value"
+  case None if value == 2        => s"I have not value"
+}
+// res0: result: String = "My value is `2`"
+```
+
+The pattern matching statement of Scala is very useful to make matches in algebraic types expressed by case classes, it also allows us to define patterns independently of case classes, using `unapply` methods in `extractor objects`.
+
+[//]: <> (La declaración de coincidencia de patrones de Scala es muy útil para hacer coincidencias en tipos algebraicos expresados ​​mediante clases de casos, también nos permite la definición de patrones independientemente de las clases de casos, utilizando métodos de no aplicación en objetos extractores.)
+
+# Extractor objects
 > An extractor object is an object with an `unapply` method. Whereas the `apply` method is like a constructor which takes arguments and creates an object, the `unapply` takes an object and tries to give back the arguments. This is most often used in pattern matching and partial functions.
 
-......
+```scala
+object Int {
+  def unapply(arg: String): Option[Int] = Try(arg.toInt).toOption
+}
+
+def matchingNumberByString(value: String): Int = value match {
+  case "zero" => 0
+  case "one"  => 1
+  case "two"  => 2
+  case Int(i) => i
+  case _      => throw new RuntimeException()
+}
+
+matchingNumberByString("one") // 1
+matchingNumberByString("6")   // 6
+```
 
 ## Constant patterns
 
