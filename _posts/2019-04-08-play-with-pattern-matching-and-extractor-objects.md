@@ -72,6 +72,10 @@ matchingNumberByString("one") // 1
 matchingNumberByString("6")   // 6
 ```
 
+Then clarify some concepts mentioned above to better understand how we can exploit these powerful Scala syntax.
+
+[//]: <> (A continuación aclarar algunos conceptos mencionados anteriormente para comprender mejor cómo podemos explotar estas poderosas sintaxis de Scala.)
+
 ## Constant patterns
 
 Any literal can be used as a constant. A constant pattern can only coincide with itself, this means that if we declare a variable with value 2 it will only coincide with an Int value of 2. e.g:
