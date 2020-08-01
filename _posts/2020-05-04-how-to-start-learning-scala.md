@@ -97,4 +97,5 @@ sttp —The Scala HTTP client
 # Conclusion
 
 To end up, keep your current habits of how to learn and how you have learned other languages ​​and apply all this knowledge to Scala. I can tell you that functional programming is a really beautiful and interesting world.
+
 I hope this article helps you to improve your Scala programming skills.
