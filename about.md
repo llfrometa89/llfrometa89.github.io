@@ -9,10 +9,9 @@ image:
   feature: wall2.png
 ---
 
-
-I'm a functional programming, motivator, leader, and long-time software architect and engineer. I'm faithful to the principles of functional programming and defender of creation simple and maintainable code, I love technology, science, software engineering and my family.
-
-I have extensive knowledge of different programming languages, architectural patterns and main frameworks of development. However, there is always room for improvement so I'm always looking to explore new ideas, learn from my peers, have new experiences and engage with new challenges.
+I'm a Software Engineer with 10+ years of experience in architecture design and development with strong problem-solving skills. I'm an advocate of functional programming and creating simple and maintainable code. I have strong self-organization and time-management skills. 
+I'm interested in building powerful, reactive, concurrent, and distributed applications. I have extensive knowledge of different programming languages, architectural patterns and the principal development frameworks.
+However, there is always room for improvement so I'm constantly looking to explore new ideas, learn from my peers, have new experiences and engage with new challenges.
 
 This is my blog attempt, fueled by my desire to share my knowledge.
 
